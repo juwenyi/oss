@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AccessKey 提取器",
+  "version": "1.1",
+  "description": "在任意网站上提取 AccessKeyId、AccessKeySecret 和 SecurityToken。",
+  "permissions": ["clipboardWrite", "activeTab"],
+  "host_permissions": ["<all_urls>"],  // 允许所有网址
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],  // 匹配所有网址
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}
